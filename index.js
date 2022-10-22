@@ -29,9 +29,11 @@ function init() {
             .then((response) => {
                 console.log('Manager', response)
                 // Do I create the constructor here?
+                let manager = response; 
+                console.log('Manager 2', manager)
                 createTeam()
-                let managerCard = `manager${response.managerName}`;
-                console.log(managerCard);
+                // let managerCard = `manager${response.managerName}`;
+                // console.log(managerCard);
                 // let managerCard = new Manager()                
             })
     }
