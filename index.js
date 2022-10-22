@@ -1,4 +1,7 @@
 const inquirer = require('inquirer');
+const fs = require('fs')
+
+let buildTeam = []; 
 
 function init() {
     function createManager() {
@@ -28,13 +31,9 @@ function init() {
             ])
             .then((response) => {
                 console.log('Manager', response)
-                // Do I create the constructor here?
-                let manager = response; 
-                console.log('Manager 2', manager)
-                createTeam()
-                // let managerCard = `manager${response.managerName}`;
-                // console.log(managerCard);
-                // let managerCard = new Manager()                
+                buildTeam.push(response); 
+                console.log('ManagerArray', buildTeam)
+                createTeam()               
             })
     }
 
@@ -54,10 +53,9 @@ function init() {
                     addEngineer()
                 } else if (response.build == 'Add an intern') {
                     addIntern()
-                } else {console.log("End")
-                // } else {buildTeam()} 
-                }   
-            })    
+                // } else {console.log("End")}
+                } else {exportTeam()}   
+            })   
     }
 
     function addEngineer() {
@@ -86,6 +84,8 @@ function init() {
             ])
             .then((response) => {
                 console.log('Engineer', response)
+                buildTeam.push(response)
+                console.log('EngineerArry', buildTeam)
                 createTeam()
 
             })
@@ -117,11 +117,17 @@ function init() {
             ])
             .then((response) => {
                 console.log('Intern', response)
+                buildTeam.push(response)
+                console.log('InternArray', buildTeam)
                 createTeam()
             })
     }
 
-    // function buildTeam()
+    function exportTeam() {
+        fs.writeFile('./dist/teamBuild.json', JSON.stringify(buildTeam),(error) => {
+            error ? console.log(error) : console.log('Success!')})
+    }
+    // Reference 09-NodeJs > 01 > 20 Stu_Inquirer-Users
 
     createManager()
 }
