@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs')
+const Employee = require('./lib/employee.class')
 
 let buildTeam = []; 
 
@@ -11,26 +12,32 @@ function init() {
                 {
                     type: 'input',
                     message: "Enter the team manager's name",
-                    name: 'managerName'
+                    name: 'name'
                 },
                 {
                     type: 'input',
                     message: "Enter the team manager's employee ID",
-                    name: 'managerId'
+                    name: 'id'
                 },
                 {
                     type: 'input',
                     message: "Enter the team manager's email address",
-                    name: 'managerEmail'
+                    name: 'email'
                 },
                 {
                     type: 'input',
                     message: "Enter the team manager's office number",
-                    name: 'managerOfficeNum'
+                    name: 'office'
                 }
             ])
             .then((response) => {
                 console.log('Manager', response)
+                // Create object with input
+                const manager = new Employee(
+                    response.name,
+                    response.id,
+                    response.email,
+                    response.office) 
                 buildTeam.push(response); 
                 console.log('ManagerArray', buildTeam)
                 createTeam()               
@@ -54,7 +61,7 @@ function init() {
                 } else if (response.build == 'Add an intern') {
                     addIntern()
                 // } else {console.log("End")}
-                } else {exportTeam()}   
+                } else {exportTeam()} 
             })   
     }
 
@@ -123,12 +130,11 @@ function init() {
             })
     }
 
-    function exportTeam() {
-        fs.writeFile('./dist/teamBuild.json', JSON.stringify(buildTeam),(error) => {
-            error ? console.log(error) : console.log('Success!')})
-    }
     // Reference 09-NodeJs > 01 > 20 Stu_Inquirer-Users
-
+    function exportTeam() {
+        // fs.writeFile()
+    }
+    
     createManager()
 }
 

@@ -17,3 +17,5 @@ let employee = {
 
 test.push(employee)
 console.log('employee', test)
+
+test.forEach
