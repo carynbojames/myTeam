@@ -8,7 +8,7 @@ describe ('Employee', () => {
     })
 
     it('Should set the name via constructor arguments', () => {
-        const testValue = 'Caryn'; // 
+        const testValue = 'Jane'; // 
         const newEmp = new Employee(testValue);
         expect(newEmp.name).toEqual(testValue);
     })
@@ -17,5 +17,39 @@ describe ('Employee', () => {
         const testValue = '1';
         const newEmp = new Employee("", testValue);
         expect(newEmp.id).toEqual(testValue);
+    })
+
+    it('Should set the email via constructor arguments', () => {
+        const testValue = 'jane@email.com'
+        const newEmp = new Employee("", "", testValue)
+        expect(newEmp.email).toEqual(testValue)
+    })
+
+    it('Should get name via getName()', () => {
+        const testValue = 'Jane'
+        const newEmp = new Employee(testValue);
+        const testResult = newEmp.getName()
+        expect(testValue).toEqual(testResult)
+    })
+
+    it('Should get id via getId()', () => {
+        const testValue = '1'
+        const newEmp = new Employee('', testValue)
+        const testResult = newEmp.getId()
+        expect(testValue).toEqual(testResult)
+    })
+
+    it('Should get email via getEmail()', () => {
+        const testValue = 'jane@email.com'
+        const newEmp = new Employee('', '', testValue)
+        const testResult = newEmp.getEmail()
+        expect(testValue).toEqual(testResult)
+    })
+
+    it('Should get "employee" via getRole()', () => {
+        const testValue = 'employee'
+        const newEmp = new Employee()
+        const testResult = newEmp.getRole()
+        expect(testValue).toEqual('employee')        
     })
 })
