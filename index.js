@@ -5,7 +5,9 @@ const Manager = require('./lib/manager.class')
 const Engineer = require('./lib/engineer.class')
 const Intern = require('./lib/intern.class')
 
+let buildTeamRaw = []; 
 let buildTeam = []; 
+// The type of parameters aren't going to change so const could be used instead of let
 
 function init() {
     function createManager() {
@@ -34,16 +36,22 @@ function init() {
                 }
             ])
             .then((response) => {
-                console.log('Manager', response)
-                // Create object with input
-                const manager = new Employee(
+                // Create object with respones as the input parameters
+                const manager = new Manager(
                     response.name,
                     response.id,
                     response.email,
                     response.office) 
-                buildTeam.push(response); 
-                console.log('ManagerArray', buildTeam)
-                createTeam()               
+                // Push new object into an array 
+                buildTeamRaw.push(response); 
+                buildTeam.push(manager); 
+                console.log(response)
+                console.log('Build Team Raw', buildTeamRaw)
+                console.log('Build Team', buildTeam)
+                console.log('Get Name:', manager.getName())
+                console.log('Office Number -', manager.getofficeNum())
+                // Ask if additional team member should be included
+                createTeam()       
             })
     }
 
@@ -74,30 +82,35 @@ function init() {
                 {
                     type: 'input',
                     message: "Enter the engineer's name",
-                    name: 'engineerName'
+                    name: 'name'
                 },
                 {
                     type: 'input',
                     message: "Enter the engineer's ID",
-                    name: 'engineerId'
+                    name: 'id'
                 },
                 {
                     type: 'input',
                     message: "Enter the engineer's email",
-                    name: 'engineerEmail'
+                    name: 'email'
                 },
                 {
                     type: 'input',
                     message: "Enter the engineer's gitHub username",
-                    name: 'engineerUsername'
+                    name: 'github'
                 }
             ])
             .then((response) => {
-                console.log('Engineer', response)
-                buildTeam.push(response)
-                console.log('EngineerArry', buildTeam)
+                const engineer = new Engineer(
+                    response.name,
+                    response.id,
+                    response.email,
+                    response.github)
+                buildTeamRaw.push(response)
+                buildTeam.push(engineer)
+                console.log('Build Team Raw', buildTeamRaw)
+                console.log('Build Team', buildTeam)
                 createTeam()
-
             })
     }
 
@@ -107,28 +120,31 @@ function init() {
                 {
                     type: 'input',
                     message: "Enter the intern's name",
-                    name: 'internName'
+                    name: 'name'
                 },
                 {
                     type: 'input', 
                     message: "Enter the intern's ID", 
-                    name: 'internId'
+                    name: 'id'
                 },
                 {
                     type: 'input',
                     message: "Enter the intern's email",
-                    name: 'internEmail'
+                    name: 'email'
                 },
                 {
                     type: 'input', 
                     message: "Enter the intern's school",
-                    name: 'internSchool'
+                    name: 'school'
                 }
             ])
             .then((response) => {
-                console.log('Intern', response)
-                buildTeam.push(response)
-                console.log('InternArray', buildTeam)
+                const intern = new Intern(
+                    response.name,
+                    response.id,
+                    response.email,
+                    response.school)
+                buildTeam.push(intern)
                 createTeam()
             })
     }
