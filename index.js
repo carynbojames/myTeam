@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs')
 const Employee = require('./lib/employee.class')
+const Manager = require('./lib/manager.class')
+const Engineer = require('./lib/engineer.class')
+const Intern = require('./lib/intern.class')
 
 let buildTeam = []; 
 
