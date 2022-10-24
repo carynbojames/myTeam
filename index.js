@@ -3,6 +3,7 @@ const fs = require('fs')
 const Manager = require('./lib/manager.class')
 const Engineer = require('./lib/engineer.class')
 const Intern = require('./lib/intern.class')
+const teamBuild = require('./src/page-template')
 // const Employee = require('./lib/employee.class')
 // ^ "Employee" not required because it gets referenced via other pages
 
@@ -111,7 +112,8 @@ function init() {
                 buildTeam.push(engineer) 
                 console.log('Build Team Raw', buildTeamRaw)
                 console.log('Build Team', buildTeam)
-                // The engineer variable gets rewritten and pushed to the object array
+                // The engineer variable gets rewritten each time addEngineer function is called
+                // This is okay. The variables are pushed 
                 createTeam()
             })
     }
@@ -153,12 +155,11 @@ function init() {
 
     // Reference 09-NodeJs > 01 > 20 Stu_Inquirer-Users
     function exportTeam() {
-        // fs.writeFile()
+        fs.writeFile('./dist/team.html', teamBuild, (error) => {
+            error ? console.log(error) : console.log('Success!')})
     }
     
     createManager()
 }
 
 init()
-
-// module.exports = buildTeam; 
