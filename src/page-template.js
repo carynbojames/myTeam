@@ -3,10 +3,11 @@
 // Output: HTML file
 
 const generateTeam = teamBuild => {
+    // console.log('Generate Team', buildTeam)
 
     // Create the manager html
-    const generateManager = manager => { return 
-        `<div class="card">
+    const generateManager = manager => { 
+        return `<div class="card">
             <div class="card-header bg-warning">
                 <p>Manager</p>
                 <p>${manager.getName()}</p>
@@ -20,27 +21,29 @@ const generateTeam = teamBuild => {
     }
 
     // Create the engineer html
-    const generateEngineer = engineer => {}
+    // const generateEngineer = engineer => {}
 
     // Create the intern html
-    const generateIntern = intern => {}
+    // const generateIntern = intern => {}
 
 
     const html = []; 
 
     // Create logic that triggers building the HTML
 
-    html.push(teamBuild  // html.push(variable w/ condition-filter and action-map)
+    html.push(teamBuild  
         .filter(employee => employee.getRole() === 'manager')
         .map(manager => generateManager(manager)) // .map will perform the action to all constructors that are manager
     )
-    
-    console.log(hmtl)
+    // html.push(variable w/ condition-filter and action-map)
+
+    console.log('html', html)
+    // return html.join("")
 }
 
 
-module.exports = teamBuild => { return 
-    `<!DOCTYPE html>
+module.exports = teamBuild => {  
+    return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">

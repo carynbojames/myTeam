@@ -3,9 +3,9 @@ const fs = require('fs')
 const Manager = require('./lib/manager.class')
 const Engineer = require('./lib/engineer.class')
 const Intern = require('./lib/intern.class')
-const teamBuild = require('./src/page-template')
 // const Employee = require('./lib/employee.class')
 // ^ "Employee" not required because it gets referenced via other pages
+const render = require('./src/page-template')
 
 let buildTeamRaw = []; 
 let buildTeam = []; 
@@ -73,7 +73,6 @@ function init() {
                     addEngineer()
                 } else if (response.build == 'Add an intern') {
                     addIntern()
-                // } else {console.log("End")}
                 } else {exportTeam()} 
             })   
     }
@@ -155,7 +154,10 @@ function init() {
 
     // Reference 09-NodeJs > 01 > 20 Stu_Inquirer-Users
     function exportTeam() {
-        fs.writeFile('./dist/team.html', teamBuild, (error) => {
+        // const filePath = __dirName + '/dist/team.html'
+        const filePath = './dist/team.html'
+        const dataString = render(buildTeam) // 
+        fs.writeFile(filePath, dataString, (error) => {
             error ? console.log(error) : console.log('Success!')})
     }
     
