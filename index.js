@@ -51,7 +51,7 @@ function init() {
                 console.log('Build Team Raw', buildTeamRaw)
                 console.log('Build Team', buildTeam)
                 console.log('Get Name:', manager.getName())
-                console.log('Office Number -', manager.getofficeNum())
+                console.log('Office Number -', manager.getOfficeNum())
                 // Ask if additional team member should be included
                 createTeam()       
             })
