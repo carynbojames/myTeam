@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs')
-const Employee = require('./lib/employee.class')
 const Manager = require('./lib/manager.class')
 const Engineer = require('./lib/engineer.class')
 const Intern = require('./lib/intern.class')
+// const Employee = require('./lib/employee.class')
+// ^ "Employee" not required because it gets referenced via other pages
 
 let buildTeamRaw = []; 
 let buildTeam = []; 
@@ -107,9 +108,10 @@ function init() {
                     response.email,
                     response.github)
                 buildTeamRaw.push(response)
-                buildTeam.push(engineer)
+                buildTeam.push(engineer) 
                 console.log('Build Team Raw', buildTeamRaw)
                 console.log('Build Team', buildTeam)
+                // The engineer variable gets rewritten and pushed to the object array
                 createTeam()
             })
     }
@@ -158,3 +160,5 @@ function init() {
 }
 
 init()
+
+// module.exports = buildTeam; 
