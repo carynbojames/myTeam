@@ -16,7 +16,7 @@ const generateTeam = teamBuild => {
                 </div>
                 <div class="card-body text-secondary">
                     <p class="card-text">ID: ${manager.getId()}</p> 
-                    <p class="card-text">Email: ${manager.getEmail()}</p>
+                    <p class="card-text">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
                     <p class="card-text">Office Number: ${manager.getOfficeNum()}</p>
                 </div>
             </div>
@@ -34,8 +34,8 @@ const generateTeam = teamBuild => {
                     </div>
                     <div class="card-body text-secondary">
                         <p class="card-text">ID: ${engineer.getId()}</p> 
-                        <p class="card-text">Email: ${engineer.getEmail()}</p>
-                        <p class="card-text">Github Username: ${engineer.getGithub()}</p>
+                        <p class="card-text">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
+                        <p class="card-text">Github Username: <a href="https://github.com/${engineer.getGithub()}">https://github.com/${engineer.getGithub()}</a></p>
                     </div>
                 </div>
             </div>`
@@ -52,7 +52,7 @@ const generateTeam = teamBuild => {
                     </div>
                     <div class="card-body text-secondary">
                         <p class="card-text">ID: ${intern.getId()}</p> 
-                        <p class="card-text">Email: ${intern.getEmail()}</p>
+                        <p class="card-text">Email: <a href="mailto:"${intern.getEmail()}">${intern.getEmail()}</a></p>
                         <p class="card-text">School: ${intern.getSchool()}</p>
                     </div>
                 </div>
@@ -79,7 +79,8 @@ const generateTeam = teamBuild => {
     )
  
     console.log('html', html)
-    return html.join("")  // join gets rid of the 
+    console.log(html.join(""))
+    return html.join("")  // join gets rid of the different strings
 }
 
 // Pass this to the index file
