@@ -63,5 +63,13 @@ team.push(employee01)
 team.push(employee02)
 team.push(engineer)
 console.log('Constructor Array', team)
-console.log('Type Of', typeof team)
-// 
+console.log('Type Of', typeof team) // object
+
+// Constructor Array - Team
+// [ Employee {name: 'caryn', id: '1', email: 'caryn@gmail.com' },
+//   Engineer {name: 'stephanie', school: 'MSU' } ]
+// OBSERVATION-01: It includes the constructor name
+// OBSERVATION-02: The elements of the object can be different 
+
+
+

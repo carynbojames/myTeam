@@ -1,3 +1,5 @@
+// Write these as tests because that's what they are
+
 const Manager = require('../lib/manager.class')
 const Engineer = require('../lib/engineer.class')
 

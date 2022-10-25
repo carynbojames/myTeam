@@ -48,7 +48,7 @@ describe ('Employee', () => {
 
     it('Should get "employee" via getRole()', () => {
         const testValue = 'employee'
-        const newEmp = new Employee()
+        const newEmp = new Employee() // returns an object w/ undefined variables
         const testResult = newEmp.getRole()
         expect(testValue).toEqual('employee')        
     })
