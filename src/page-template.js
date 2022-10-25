@@ -21,10 +21,34 @@ const generateTeam = teamBuild => {
     }
 
     // Create the engineer html
-    // const generateEngineer = engineer => {}
+    const generateEngineer = engineer => {
+        return `<div class="card">
+        <div class="card-header bg-warning">
+            <p>Engineer</p>
+            <p>${engineer.getName()}</p>
+        </div>
+        <div class="card-body bg-light">
+            <p>ID: ${engineer.getId()}</p> 
+            <p>Email: ${engineer.getEmail()}</p>
+            <p>Github: ${engineer.getGithub()}</p>
+        </div>
+    </div>`
+    }
 
     // Create the intern html
-    // const generateIntern = intern => {}
+    const generateIntern = intern => {
+        return `<div class="card">
+        <div class="card-header bg-warning">
+            <p>Intern</p>
+            <p>${intern.getName()}</p>
+        </div>
+        <div class="card-body bg-light">
+            <p>ID: ${intern.getId()}</p> 
+            <p>Email: ${intern.getEmail()}</p>
+            <p>Github: ${intern.getSchool()}</p>
+        </div>
+    </div>`
+    }
 
 
     const html = []; 
@@ -35,8 +59,19 @@ const generateTeam = teamBuild => {
         .filter(employee => employee.getRole() === 'Manager')
         .map(manager => generateManager(manager)) // .map will perform the action to all constructors that are manager
     )
+
+    html.push(teamBuild
+        .filter(employee => employee.getRole() === 'Engineer')
+        .map(engineer => generateEngineer(engineer)) // Can this be anything?
+    )
+
+    html.push(teamBuild
+        .filter(employee => employee.getRole() === 'Intern')
+        .map(intern => generateIntern(intern))    
+    )
  
     console.log('html', html)
+
     return html.join("")
 }
 
