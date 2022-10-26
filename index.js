@@ -5,9 +5,8 @@ const Engineer = require('./lib/engineer.class')
 const Intern = require('./lib/intern.class')
 // const Employee = require('./lib/employee.class')
 // ^ "Employee" not required because it gets referenced via other pages
-const build = require('./src/build-html')
+const render = require('./src/build-html')
 
-let buildTeamRaw = []; 
 let buildTeam = []; 
 // The type of parameters aren't going to change so const could be used instead of let
 
@@ -146,7 +145,7 @@ function init() {
     // Reference 09-NodeJs > 01 > 20 Stu_Inquirer-Users
     function exportTeam() {
         const filePath = './dist/team.html'
-        const dataString = build(buildTeam) // 
+        const dataString = render(buildTeam) // 
         fs.writeFile(filePath, dataString, (error) => {
             error ? console.log(error) : console.log('Success!')})
     }
