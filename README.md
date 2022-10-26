@@ -3,13 +3,12 @@
 ## Description
 A dynamic tool that allows you to build and visually represent your team with critical information for each role. Each team consists of one manager. The rest of the profiles compiled are of as many or as few engineers and interns that represent the team. 
 
-
 ## Functionality
 - The user builds a team of a manager, engineer(s), and/or intern(s) by being prompted in the terminal to enter information about each position. The questions vary depending on the role.
 - That data is manipulated to create individual cards for each of the employee's that displays their title and the information collected about them
 
 Video Link w/ Example:
-[Video Tutorial]()
+[Video Tutorial](https://drive.google.com/file/d/11KXBmmeEGFdla5MTmblv82GRJ-5JioCo/view)
 
 
 ## Installation Instructions
@@ -47,3 +46,7 @@ For additional questions, reach out to the developer via the links below
 - **GitHub Username:** carynbojames1
 - **GitHub Profile Link:** https://github.com/carynbojames 
 - **Email Address:** carynbojames1@gmail.com
+
+
+
+![My Team Example](./src/images/My%20Team%20Example.png)

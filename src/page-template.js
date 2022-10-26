@@ -3,7 +3,6 @@
 // Output: HTML file
 
 const generateTeam = teamBuild => {
-    console.log('Generate Team', teamBuild)
 
     // Create the manager html
     const generateManager = manager => { 
@@ -78,8 +77,6 @@ const generateTeam = teamBuild => {
         .map(intern => generateIntern(intern))    
     )
  
-    console.log('html', html)
-    console.log(html.join(""))
     return html.join("")  // join gets rid of the different strings
 }
 
