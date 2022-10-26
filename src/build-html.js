@@ -1,5 +1,5 @@
 // Create the team in HTML
-// Input: Inquirir data, but how does it get there? 
+// Input: Inquirir data
 // Output: HTML file
 
 const generateTeam = teamBuild => {
@@ -61,6 +61,7 @@ const generateTeam = teamBuild => {
 
     const html = []; 
 
+
     // Create logic that triggers building the HTML
 
     html.push(teamBuild  // html.push(variable w/ condition-filter and action-map)
@@ -70,7 +71,7 @@ const generateTeam = teamBuild => {
 
     html.push(teamBuild
         .filter(employee => employee.getRole() === 'Engineer')
-        .map(engineer => generateEngineer(engineer)) // Can this be anything?
+        .map(engineer => generateEngineer(engineer))
     )
 
     html.push(teamBuild
