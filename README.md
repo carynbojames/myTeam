@@ -8,7 +8,7 @@ A dynamic tool that allows you to build and visually represent your team with cr
 - That data is manipulated to create individual cards for each of the employee's that displays their title and the information collected about them
 
 Video Link w/ Example:
-[Video Tutorial](https://drive.google.com/file/d/11KXBmmeEGFdla5MTmblv82GRJ-5JioCo/view)
+[Video Tutorial](https://drive.google.com/file/d/1TObsmC3xV8O9UxlJpQj1qi8L2fQTaTEF/view)
 
 
 ## Installation Instructions
