@@ -25,6 +25,5 @@ describe('Engineer', () => {
         const newEmp = new Employee()
         const testResult = newEmp.getRole()
         expect(testValue).toEqual('engineer')
-        /// Or should "engineer" be th logic. 
     })
 })
